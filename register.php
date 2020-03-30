@@ -20,6 +20,20 @@ if(isset($_SESSION["pseudo"])){
 <!-- Formulaire de connexion de session -->
 <div class="form_login">
     <h2>Connexion</h2>
+
+<?php
+
+if(isset($_GET["errorMessage"])){ ?>
+
+<div class="alert alert-danger alert-dismissible fade show">
+    <?= $_GET["errorMessage"]?>
+    <button class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<?php } ?>
+
     <form action="functions/createUser.php" method="post" class="login">
         <input type="text" placeholder="Pseudo" name="pseudo">
         <input type="password" placeholder="Password" name="password">
